@@ -1,7 +1,7 @@
 require 'pdfkit'
 
 PDFKit.configure do |config|       
-  config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf-amd64').to_s if ENV['RACK_ENV'] == 'production'  
+  config.wkhtmltopdf = File.expand_path('../../bin/wkhtmltopdf-amd64', __FILE__).to_s if ENV['RACK_ENV'] == 'production'  
   config.default_options = {
     :print_media_type => true, 
     :footer_right=>"[page]/[toPage]", 
